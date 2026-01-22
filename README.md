@@ -1,4 +1,4 @@
-cat <<EOF > README.md
+
 # Swagger Petstore API Automation Framework
 
 ## 1. Executive Summary
@@ -14,12 +14,14 @@ The framework validates the integrity of data flow across critical modules (Pet,
 ---
 
 ## 2. Repository Artifacts
+The following files are included in this repository to provide full traceability of the testing cycle:
 
-| File Name | Description |
-|:---|:---|
-| **Swagger Petstore.postman_collection.json** | The core test suite containing sequenced API requests (GET, POST, PUT, DELETE) and JavaScript-based test scripts. |
-| **Swagger-Petstore.postman_environment.json** | Configuration file managing dynamic environment variables (Base URL, Pet IDs, Order IDs) to isolate test data. |
-| **.github/workflows/petstore-ci.yml** | CI/CD configuration file for automated regression testing on code push. |
+* **Swagger Petstore.postman_collection.json**
+    The core test suite containing sequenced API requests (GET, POST, PUT, DELETE) and JavaScript-based test scripts.
+
+* **Swagger-Petstore.postman_environment.json**
+    Configuration file managing dynamic environment variables (Base URL, Pet IDs, Order IDs) to isolate test data.
+
 
 ---
 
@@ -42,9 +44,9 @@ The automation suite verifies the End-to-End (E2E) lifecycle of store entities:
 
 ### 4.1 Dynamic Environment Chaining
 Data is passed dynamically between requests to ensure test independence and reduce hard-coding:
-* \`{{baseUrl}}\`: Centralized endpoint configuration (e.g., \`https://petstore.swagger.io/v2\`).
-* \`{{petId}}\`: Runtime-generated ID extracted from the "Create Pet" response.
-* \`{{username}}\`: Dynamic username for user lifecycle testing.
+* **Base URL:** Centralized endpoint configuration (e.g., \`https://petstore.swagger.io/v2\`).
+* **Pet ID:** Runtime-generated ID extracted from the "Create Pet" response.
+* **Username:** Dynamic username for user lifecycle testing.
 
 ### 4.2 Quality Assurance Assertions
 Every request includes strict validation scripts:
@@ -62,7 +64,7 @@ Every request includes strict validation scripts:
 3.  Execute the collection using the **Runner**.
 
 ### 5.2 Automated Execution (Newman CLI)
-To run the suite in a Continuous Integration (CI) environment:
+To run the suite in a Continuous Integration (CI) environment, use the following commands:
 
 \`\`\`bash
 # Install Dependencies
