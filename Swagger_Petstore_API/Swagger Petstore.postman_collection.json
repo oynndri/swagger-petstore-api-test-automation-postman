@@ -1,0 +1,547 @@
+{
+	"info": {
+		"_postman_id": "d83a3a29-b54f-418b-a02b-c59406755da8",
+		"name": "Swagger Petstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "51354656",
+		"_collection_link": "https://ghurardimermatha-8688602.postman.co/workspace/Ghurardimermatha's-Workspace~7fa8cab6-f3fd-4355-8351-bcbf163e4b37/collection/51354656-d83a3a29-b54f-418b-a02b-c59406755da8?action=share&source=collection_link&creator=51354656"
+	},
+	"item": [
+		{
+			"name": "Pet",
+			"item": [
+				{
+					"name": "CreateNewPet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 101,\n  \"category\": {\n    \"id\": 10,\n    \"name\": \"Cat\"\n  },\n  \"name\": \"Buddy\",\n  \"photoUrls\": [\n    \"https://example.com/images/buddy-1.jpg\",\n    \"https://example.com/images/buddy-2.jpg\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 201,\n      \"name\": \"friendly\"\n    },\n    {\n      \"id\": 202,\n      \"name\": \"vaccinated\"\n    }\n  ],\n  \"status\": \"available\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}pet",
+							"host": [
+								"{{Url}}pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UploadImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/oynndrilasinghpurkayestha/Downloads/images.jpeg"
+								},
+								{
+									"key": "additionalMetadata",
+									"value": "Image upload test for petId 101\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Url}}pet/101/uploadImage",
+							"host": [
+								"{{Url}}pet"
+							],
+							"path": [
+								"101",
+								"uploadImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 101,\n  \"category\": {\n    \"id\": 20,\n    \"name\": \"Cats\"\n  },\n  \"name\": \"Mini\",\n  \"photoUrls\": [\n    \"https://example.com/images/mimi-1.jpg\",\n    \"https://example.com/images/mimi-2.jpg\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 301,\n      \"name\": \"cute\"\n    },\n    {\n      \"id\": 302,\n      \"name\": \"indoor\"\n    }\n  ],\n  \"status\": \"available\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}pet",
+							"host": [
+								"{{Url}}pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindPets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}pet/findByStatus?status=available,pending",
+							"host": [
+								"{{Url}}pet"
+							],
+							"path": [
+								"findByStatus"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "available,pending"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindPetsbyTags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}pet/findByTags?tags=array<string>",
+							"host": [
+								"{{Url}}pet"
+							],
+							"path": [
+								"findByTags"
+							],
+							"query": [
+								{
+									"key": "tags",
+									"value": "array<string>"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}pet/101?petId=integer",
+							"host": [
+								"{{Url}}pet"
+							],
+							"path": [
+								"101"
+							],
+							"query": [
+								{
+									"key": "petId",
+									"value": "integer"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update-Pet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "mini",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "pending",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{Url}}pet/101",
+							"host": [
+								"{{Url}}pet"
+							],
+							"path": [
+								"101"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}pet/101",
+							"host": [
+								"{{Url}}pet"
+							],
+							"path": [
+								"101"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "GetInventory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}store/inventory",
+							"host": [
+								"{{Url}}store"
+							],
+							"path": [
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateOrder",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 501,\n  \"petId\": 101,\n  \"quantity\": 1,\n  \"shipDate\": \"2026-01-11T20:43:56.722Z\",\n  \"status\": \"placed\",\n  \"complete\": true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}store/order",
+							"host": [
+								"{{Url}}store"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETStoreOrder",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{Url}}store/order/501",
+							"host": [
+								"{{Url}}store"
+							],
+							"path": [
+								"order",
+								"501"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}store/order/501",
+							"host": [
+								"{{Url}}store"
+							],
+							"path": [
+								"order",
+								"501"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "createWithList",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"id\": 1,\n    \"username\": \"catlover1\",\n    \"firstName\": \"Mimi\",\n    \"lastName\": \"Cat\",\n    \"email\": \"mimi@cat.com\",\n    \"password\": \"12345\",\n    \"phone\": \"01700000001\",\n    \"userStatus\": 1\n  },\n  {\n    \"id\": 2,\n    \"username\": \"catlover2\",\n    \"firstName\": \"Luna\",\n    \"lastName\": \"Cat\",\n    \"email\": \"luna@cat.com\",\n    \"password\": \"12345\",\n    \"phone\": \"01700000002\",\n    \"userStatus\": 1\n  }\n]\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}user/createWithList",
+							"host": [
+								"{{Url}}user"
+							],
+							"path": [
+								"createWithList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}user/user1",
+							"host": [
+								"{{Url}}user"
+							],
+							"path": [
+								"user1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"username\": \"catlover1\",\n  \"firstName\": \"Mimi Updated\",\n  \"lastName\": \"Cat\",\n  \"email\": \"mimiupdated@cat.com\",\n  \"password\": \"newpass123\",\n  \"phone\": \"01711111111\",\n  \"userStatus\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}user/catlover1",
+							"host": [
+								"{{Url}}user"
+							],
+							"path": [
+								"catlover1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}user/catlover1",
+							"host": [
+								"{{Url}}user"
+							],
+							"path": [
+								"catlover1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserLogin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}user/login?username=mimi_cat01&password=12345",
+							"host": [
+								"{{Url}}user"
+							],
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "mimi_cat01"
+								},
+								{
+									"key": "password",
+									"value": "12345"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserLogout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Url}}user/logout",
+							"host": [
+								"{{Url}}user"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createWithArray",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n  {\n    \"id\": 21,\n    \"username\": \"mimi_cat01\",\n    \"firstName\": \"Mimi\",\n    \"lastName\": \"Cat\",\n    \"email\": \"mimi@cat.com\",\n    \"password\": \"12345\",\n    \"phone\": \"01700000001\",\n    \"userStatus\": 1\n  },\n  {\n    \"id\": 22,\n    \"username\": \"luna_cat02\",\n    \"firstName\": \"Luna\",\n    \"lastName\": \"Cat\",\n    \"email\": \"luna@cat.com\",\n    \"password\": \"12345\",\n    \"phone\": \"01700000002\",\n    \"userStatus\": 1\n  }\n]\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}user/createWithArray",
+							"host": [
+								"{{Url}}user"
+							],
+							"path": [
+								"createWithArray"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 101,\n  \"username\": \"mimi_cat01\",\n  \"firstName\": \"Mimi\",\n  \"lastName\": \"Cat\",\n  \"email\": \"mimi@cat.com\",\n  \"password\": \"12345\",\n  \"phone\": \"01700000001\",\n  \"userStatus\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Url}}user",
+							"host": [
+								"{{Url}}user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
